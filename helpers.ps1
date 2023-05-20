@@ -1,4 +1,4 @@
-function ExistingProgram
+function [bool]ExistingProgram
 {
     param (
         $Name
@@ -8,10 +8,10 @@ function ExistingProgram
     
     if ($output)
     {
-        return True
+        return $true
     } else
     {
-        return False
+        return $false
     }
     
 }
@@ -19,8 +19,8 @@ function ExistingProgram
 function ChocoFeature
 {
     param (
-        $State,
-        $Option
+        [string]$State,
+        [string]$Option
     )
 
     Invoke-Expression -Command "choco feature $State $Option"
@@ -29,14 +29,14 @@ function ChocoFeature
 function ChocoInstall
 {
     param (
-        $Package
+        [string]$Package
     )
 
     Invoke-Expression -Command "choco install $Package" -OutVariable $out
     Write-Output "Successfully Installed $Package"
 }
 
-function Profile
+function [string]Profile
 {
     return ((Split-Path $profile -Parent) + "\profile.ps1")
 }
