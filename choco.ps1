@@ -1,4 +1,4 @@
-Import-Module "./helpers.ps1"
+Import-Module ".\helpers.ps1"
 
 if (-Not (ExistingProgram("choco")))
 {
