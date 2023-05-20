@@ -23,7 +23,7 @@ function ChocoFeature
         [string]$Option
     )
 
-    Invoke-Expression -Command "choco feature $State $Option"
+    Invoke-Expression -Command "choco feature $State $Option" -InformationAction SilentlyContinue -WarningAction SilentlyContinue
 }
 
 function ChocoInstall
