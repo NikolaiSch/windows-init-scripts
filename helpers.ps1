@@ -32,7 +32,8 @@ function ChocoInstall
         $Package
     )
 
-    Invoke-Expression -Command "choco install $Package"
+    Invoke-Expression -Command "choco install $Package" -OutVariable $out
+    Write-Output "Successfully Installed $Package"
 }
 
 function Profile
