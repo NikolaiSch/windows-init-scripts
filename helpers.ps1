@@ -32,7 +32,7 @@ function ChocoInstall
         [string]$Package
     )
 
-    Invoke-Expression -Command "choco install $Package" -OutVariable $out
+    Invoke-Expression -Command "choco install $Package" -InformationAction SilentlyContinue -WarningAction SilentlyContinue
     Write-Output "Successfully Installed $Package"
 }
 
