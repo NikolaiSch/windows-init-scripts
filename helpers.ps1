@@ -23,7 +23,7 @@ function ChocoFeature
         [string]$Option
     )
 
-    Invoke-Expression -Command "choco feature $State $Option" -InformationAction SilentlyContinue -WarningAction SilentlyContinue
+    pwsh -windowstyle hidden -Command "choco feature $State $Package"
 }
 
 function ChocoInstall
@@ -32,7 +32,7 @@ function ChocoInstall
         [string]$Package
     )
 
-    Invoke-Expression -Command "choco install $Package" -InformationAction SilentlyContinue -WarningAction SilentlyContinue
+    pwsh -windowstyle hidden -Command "choco install $Package"
     Write-Output "Successfully Installed $Package"
 }
 
