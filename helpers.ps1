@@ -34,3 +34,37 @@ function ChocoInstall
 
     Invoke-Expression -Command "choco install $Package"
 }
+
+function Profile
+{
+    return ((Split-Path $profile -Parent) + "\profile.ps1")
+}
+
+class Alias
+{
+    [string]$Name
+    [string]$Command
+    
+    Alias(
+        [string]$Name,
+        [string]$Command
+    )
+    {
+        $this.set($Name, $Command)
+    }
+
+    [void]set(
+        [string]$Name,
+        [string]$Command
+    )
+    {
+        $this.Name = $Name
+        $this.Command = $Command
+    }
+
+    [string]command()
+    {
+        return "Remove-Alias $($this.Name); New-Alias $($this.Name) $($this.Command)"
+    }
+}
+
